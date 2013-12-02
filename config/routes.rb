@@ -1,4 +1,7 @@
 Microfunder::Application.routes.draw do
+  get "user_sessions/new"
+  get "user_sessions/create"
+  get "user_sessions/destroy"
   resources :projects
   resources :users
   resources :user_sessions
