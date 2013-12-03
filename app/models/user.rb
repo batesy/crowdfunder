@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :username, presence: true
 
-  has_many :donations
   has_many :projects
-  has_many :backed_projects, through: :donations, class => "projects"
+
+  has_many :donations
+  has_many :backed_projects, through: :donations, :class_name => "Projects"
 end
