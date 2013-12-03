@@ -15,16 +15,16 @@ Goal √
 End Date √
 Video/Image
 Founder
-Location
-Category
-Tags
 Updates and notification to backers when updated
-Toggle private and public
 Cancel project
-Incentives/Funding Break Pts/Pledge Awards
 Email to individual backers and to the group
 
 STRETCH:
+Location
+Category
+Tags
+Toggle private and public
+Incentives/Funding Break Pts/Pledge Awards
 Pitch own incenstives/pledge awards
 
 USER: (Backers and Founders)    Founders Has_one Project, Backers Have_many Projects
