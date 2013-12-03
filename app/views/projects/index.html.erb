@@ -1,7 +1,7 @@
 <h1>Projects!</h1>
 
 <% @projects.each do |project| %>
-  <%= project.title %><br>
+  <%= link_to project.title, "/projects/#{project.id}" %><br>
   <%= project.goal %><br>
   <%= project.description %><br>
   <%= project.end_date %>
