@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  #before_filter :require_login :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @projects = Project.all
   end

@@ -8,15 +8,16 @@ Description: <%= @project.description %><br>
 
 Time remaining: <%= distance_of_time_in_words(@project.created_at, @project.end_date) %><br>
 
-Total donations: <% sum =  Donation.price_in_cents(@project)%>
-<%= Donation.formatted_amount(sum) %>
+Total donations: <div class="donation-total"><% sum = Donation.price_in_cents(@project)%>
+<%= display = Donation.formatted_amount(sum) %></div>
 
 <h4>Make a Donation</h4>
 
-<%= form_for [@project, @donation] do |f| %>
-<%= f.label :amount %>
-<%= f.number_field :amount %>
-<%= f.submit %>
-<% end %>
-
+<div class= "donation-form"> 
+	<%= form_for([@project, @donation], remote: true) do |f| %>
+		<%= f.label :amount %>
+		<%= f.number_field :amount %>
+		<%= f.submit %>
+	<% end %>
+</div>
 
