@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :projects
 
   has_many :donations
-  has_many :backed_projects, through: :donations, :class_name => "Projects"
+  has_many :backed_projects, through: :donations, :source => :project 
 
   mount_uploader :image, ImageUploader
 

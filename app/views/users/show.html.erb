@@ -10,5 +10,10 @@ User Email: <%= @user.email %>
 <h2>Backed Projects</h2>
 <div>
 
-<%= @user.projects %>
+<% @user.backed_projects.each do |p| %>
+  <ul>
+    <li><%= link_to p.title, "/projects/#{p.id}" %></li>
+  </ul>
+<% end %>
+
 </div>
