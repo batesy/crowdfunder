@@ -5,12 +5,12 @@ As a User:
 * I can view individual projects. S&G ***
 * I can sign up for an account. G&J
 * I can login if I have an account. G&J
-* I can back a project after signing in. S&G
+* I can back a project after signing in. S&G ****
 * I can view my profile. G&J
 * I can see a list of projects I've backed. G&J
 * I can see who the founder of a project is. 
-* I can see % funded of a project (progress bar)
-* I can see total amount funded of a project.
+* I can see % funded of a project (progress bar) 
+* I can see total amount funded of a project. S&G ****
 * I can see all users who have backed a project.
 * I can pitch my own incentive/offer to project owner.
 
