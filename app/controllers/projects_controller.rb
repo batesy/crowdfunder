@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
     if current_user
       @donation = @project.donations.build
     end
-
   end
 
   def edit
@@ -52,6 +51,8 @@ class ProjectsController < ApplicationController
       render projects_path, alert: "You do not have authorization to delete this project"
       end
   end
+
+
 
   private
   def project_params

@@ -1,9 +1,12 @@
+
+
 <%= link_to "Back", projects_path %><br><br>
 <h1><%= @project.title %></h1>
 
 Goal: <%= @project.formatted_goal %><br>
 Description: <%= @project.description %><br>
-Deadline: <%= @project.end_date %> <br/>
+
+Time remaining: <%= distance_of_time_in_words(@project.created_at, @project.end_date) %><br>
 
 Total donations: <% sum =  Donation.price_in_cents(@project)%>
 <%= Donation.formatted_amount(sum) %>
@@ -15,4 +18,5 @@ Total donations: <% sum =  Donation.price_in_cents(@project)%>
 <%= f.number_field :amount %>
 <%= f.submit %>
 <% end %>
+
 
