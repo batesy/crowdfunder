@@ -3,4 +3,6 @@
 
 Goal: <%= @project.goal %><br>
 Description: <%= @project.description %><br>
-Deadline: <%= @project.end_date %>
+Deadline: <%= @project.end_date %> <br/>
+
+Total donations: <%= @project.donations.sum(&:donations) %>

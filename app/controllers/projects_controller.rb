@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  #before_filter :require_login :only => [:new, :create, :edit, :update, :destroy]
   def index
     @projects = Project.all
   end
@@ -26,17 +27,26 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    if @project.update_attributes(project_params)
-      redirect_to project_path
-    else
-      render :edit
-    end
+      if @product.user_id = current_user
+        if @project.update_attributes(project_params)
+          redirect_to project_path
+        else
+          render :edit
+        end
+      else
+        render projects_path, alert: "You do not have authorization to delete this project"
+      end
   end
 
   def destroy
     @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_path
+    
+    if @product.user_id = current_user
+      @project.destroy
+      redirect_to projects_path
+    else 
+      render projects_path, alert: "You do not have authorization to delete this project"
+      end
   end
 
   private
