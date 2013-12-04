@@ -19,6 +19,14 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    #@donation = Donation.find(params[:id])
+    #if @donation.backer == current_user
+     #@donation = @project.donation.build
+    #end
+    if current_user
+      @donation = @project.donations.build
+    end
+
   end
 
   def edit
@@ -27,15 +35,11 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-      if @product.user_id = current_user
         if @project.update_attributes(project_params)
           redirect_to project_path
         else
           render :edit
         end
-      else
-        render projects_path, alert: "You do not have authorization to delete this project"
-      end
   end
 
   def destroy

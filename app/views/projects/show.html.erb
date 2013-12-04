@@ -6,3 +6,12 @@ Description: <%= @project.description %><br>
 Deadline: <%= @project.end_date %> <br/>
 
 Total donations: <%= @project.donations.sum(&:donations) %>
+
+<h4>Make a Donation</h4>
+
+<%= form_for [@project, @donation] do |f| %>
+<%= f.label :amount %>
+<%= f.number_field :amount %>
+<%= f.submit %>
+<% end %>
+
