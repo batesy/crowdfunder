@@ -1,4 +1,14 @@
 <h1>Profile Page</h1>
+<div>
+<%= image_tag @user.image.url(:thumb) if @user.image.present? %><br>
+</div>
+<h2>User Details</h2>
+<div>
+User Name: <%= @user.username %><br/>
+User Email: <%= @user.email %>
+</div>
+<h2>Backed Projects</h2>
+<div>
 
-<%= @user.username %><br />
-<%= @user.email %>
+<%= @user.projects %>
+</div>
