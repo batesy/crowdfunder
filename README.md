@@ -1,8 +1,8 @@
 == User Stories
 
 As a User:
-* I can view a list of all projects. S&G
-* I can view individual projects. S&G
+* I can view a list of all projects. S&G ****
+* I can view individual projects. S&G ***
 * I can sign up for an account. G&J
 * I can login if I have an account. G&J
 * I can back a project after signing in. S&G
