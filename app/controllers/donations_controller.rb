@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+	before_filter :load_project
 	before_filter :require_login, :only => [:new, :create]
 	def show
 		@donation = Donation.find(params[:id])
@@ -7,13 +8,14 @@ class DonationsController < ApplicationController
 		@donation = @project.donation.build
 	end
 	def create
-		@donation = @project.donation.build(donation_params)
-		@donation.backer = current_user
+		@donation = @project.donations.build(donation_params)
+		@donation.user = current_user
 
 		if @donation.save
-			redirect_to products_path, notice: "Thank for your donation"
+			redirect_to projects_path, notice: "Thank for your donation"
 		else
 			render "projects/show", alert: "There was an error"
+		end
 	end
 
 	private
