@@ -6,6 +6,6 @@ class Project < ActiveRecord::Base
 
   	def formatted_goal
   		goal_in_dollars = goal.to_f / 100
-  		sprintf("%$.2f", goal_in_dollars)
+  		sprintf("$%.2f", goal_in_dollars)
   	end
 end
