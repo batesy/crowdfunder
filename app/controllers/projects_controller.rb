@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  #before_filter :require_login :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
+  
   def index
     @projects = Project.all
   end
@@ -19,10 +20,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    #@donation = Donation.find(params[:id])
-    #if @donation.backer == current_user
-     #@donation = @project.donation.build
-    #end
+    @donation = Donation.new
+
     if current_user
       @donation = @project.donations.build
     end

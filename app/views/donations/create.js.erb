@@ -1,0 +1,4 @@
+<% sum = Donation.price_in_cents(@project)%>
+<% display = Donation.formatted_amount(sum) %>
+
+$(".donation-total").html('<%= display %>');

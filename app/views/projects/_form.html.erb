@@ -1,0 +1,5 @@
+<% form_for ([@project, @donation], remote: true) do |f| %>
+	<%= f.label :amount %>
+	<%= f.number_field :amount %>
+	<%= f.submit %>
+<% end %>
