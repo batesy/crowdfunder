@@ -1,4 +1,7 @@
 Microfunder::Application.routes.draw do
+
+  get 'tags/:tag', to: 'projects#index', as: :tag
+
   root :to => 'projects#index'
   
   resources :projects

@@ -2,7 +2,11 @@ class ProjectsController < ApplicationController
   before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
   
   def index
-    @projects = Project.all
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
   end
 
   def new
@@ -55,6 +59,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :description, :end_date, :goal)
+    params.require(:project).permit(:title, :description, :end_date, :goal, :tag_list)
   end
 end
