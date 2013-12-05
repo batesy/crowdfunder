@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: microfunder_development
-  username: gnambiar
+  username: stellakk
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,11 +45,11 @@ test:
   adapter: postgresql
   encoding: unicode
   database: microfunder_test
-  username: gnambiar
+  username: stellakk
 
 
 production:
   adapter: postgresql
   encoding: unicode
   database: microfunder_production
-  username: gnambiar
+  username: stellakk
