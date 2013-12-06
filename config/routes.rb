@@ -1,6 +1,12 @@
 Microfunder::Application.routes.draw do
 
+  # get "oauths/oauth"
+  # get "oauths/callback"
   get 'tags/:tag', to: 'projects#index', as: :tag
+
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   root :to => 'projects#index'
   
