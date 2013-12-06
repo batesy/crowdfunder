@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   has_many :backers, through: :donations,  :class_name => "User"
   has_many :donations
 
+  mount_uploader :image, ProjectImageUploader
+
   	def formatted_goal
   		goal_in_dollars = goal.to_f / 100
   		sprintf("$%.2f", goal_in_dollars)
@@ -18,7 +20,7 @@ class Project < ActiveRecord::Base
 
     def percent_to_goal
       percent = (pledged / goal.to_f) * 100
-      sprintf( "%.0f", percent)
+      sprintf("%.0f", percent)
     end
 
     def meter
