@@ -1,30 +1,21 @@
-<h1>Projects!</h1>
+<div class="row">
+  <div class="large-12 columns">
 
-<div id="tag_cloud" class="panel callout radius">
-  Project Tags: <br> <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
+    <% @projects.each do |project| %>
+    <div class="large-4 columns">
+      <img src="http://placehold.it/1000x1000&text=Thumbnail">
 
-<table id="sicktable">
-  <tr>
-    <th>Project Name</th>
-    <th>Goal</th>
-    <th>Description</th>
-    <th>Time Left</th>
-    <th>Tags</th>
-  </tr>
-<% @projects.each do |project| %>
-  <tr>
-  <td><%= link_to project.title, "/projects/#{project.id}" %></td>
-  <td><%= project.goal %></td>
-  <td><%= project.description %></td>
-  <td><%= distance_of_time_in_words(project.created_at, project.end_date) %></td>
-  <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
-  </tr>
-<% end %>
-</table>
+      <div class="panel">
+        <h5><%= link_to project.title, "/projects/#{project.id}" %></h5>
+        <h6 class="subheader">Pledged: $<%= project.pledged %></h6>
+        <h6 class="subheader"><%= project.percent_to_goal %>% funded</h6>
+        <div class="progress">
+          <span class="meter" style="width: <%= project.meter %>%"></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    
 
-<div id="newproject">
-  <%= link_to "<button> New Project </button>".html_safe, new_project_path %>
+  </div>
 </div>

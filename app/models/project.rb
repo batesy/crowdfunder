@@ -10,4 +10,23 @@ class Project < ActiveRecord::Base
   		sprintf("$%.2f", goal_in_dollars)
   	end
 
+    def pledged
+      total = 0
+      self.donations.each {|d| total += d.amount}
+      total
+    end
+
+    def percent_to_goal
+      percent = (pledged / goal.to_f) * 100
+      sprintf( "%.0f", percent)
+    end
+
+    def meter
+      meter = (pledged / goal.to_f) * 100
+      if meter > 100
+        100
+      else
+        meter
+      end
+    end
 end

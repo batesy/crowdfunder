@@ -10,8 +10,10 @@ Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><
 
 Time remaining: <%= distance_of_time_in_words(@project.created_at, @project.end_date) %><br>
 
-Total donations: <div class="donation-total"><% sum = Donation.price_in_cents(@project)%>
-<%= display = Donation.formatted_amount(sum) %></div>
+Total donations: <div class="donation-total">
+<% sum = Donation.price_in_cents(@project)%>
+<%= display = Donation.formatted_amount(sum) %>
+</div>
 
 <h4>Make a Donation</h4>
 

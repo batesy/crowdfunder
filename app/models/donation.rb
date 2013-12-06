@@ -10,4 +10,6 @@ class Donation < ActiveRecord::Base
   		amount_in_dollars = price_in_cents.to_f / 100
   		sprintf( "$%.2f", amount_in_dollars)
   	end
+
+
 end

@@ -1,0 +1,30 @@
+<h1>Projects!</h1>
+
+<div id="tag_cloud" class="panel callout radius">
+  Project Tags: <br> <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+<table id="sicktable">
+  <tr>
+    <th>Project Name</th>
+    <th>Goal</th>
+    <th>Description</th>
+    <th>Time Left</th>
+    <th>Tags</th>
+  </tr>
+<% @projects.each do |project| %>
+  <tr>
+  <td><%= link_to project.title, "/projects/#{project.id}" %></td>
+  <td><%= project.goal %></td>
+  <td><%= project.description %></td>
+  <td><%= distance_of_time_in_words(project.created_at, project.end_date) %></td>
+  <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
+  </tr>
+<% end %>
+</table>
+
+<div id="newproject">
+  <%= link_to "<button> New Project </button>".html_safe, new_project_path %>
+</div>
